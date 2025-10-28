@@ -1,0 +1,15 @@
+{
+  "name": "BootPaper",
+  "description": "Randomly selects a new wallpaper on startup from local folder",
+  "uuid": "zetadev@bootpaper",
+  "gettext-domain": "bootpaper",
+  "settings-schema": "org.gnome.shell.extensions.bootpaper",
+  "version": "1.0.0",
+  "shell-version": [
+    "49",
+    "48",
+    "47",
+    "46",
+    "45"
+  ]
+}
