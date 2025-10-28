@@ -5,6 +5,7 @@
   "gettext-domain": "zetadev@bootpaper",
   "settings-schema": "org.gnome.shell.extensions.bootpaper",
   "version": "1.0.0",
+  "url": "https://github.com/ErZicky/BootPaper",
   "shell-version": [
     "49",
     "48",
