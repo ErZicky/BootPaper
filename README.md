@@ -1,10 +1,11 @@
 # BootPaper
 
+<p align="center">
+  <img src="media/ico.jpg" alt="BootPaper Extension Icon" width="412" height="412">
+</p>
+
+
 A simple GNOME Shell extension that automatically sets a random wallpaper from a user-specified local directory every time you boot your system.
-
-## Description
-
-BootPaper is a simple yet effective GNOME extension that brings variety to your desktop by automatically selecting and applying a random wallpaper from your personal collection whenever you start your computer. Say goodbye to the same old wallpaper and enjoy a fresh desktop experience with every boot!
 
 ## Compatibility
 
