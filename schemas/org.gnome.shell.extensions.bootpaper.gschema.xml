@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+ <schema id="org.gnome.shell.extensions.bootpaper" path="/org/gnome/shell/extensions/bootpaper/">
+    <key type="s" name="wallpapers-directory">
+            <default>''</default>
+            <summary>The directory of the potential wallpapers.</summary>
+     </key>
+  </schema>
+</schemalist>
