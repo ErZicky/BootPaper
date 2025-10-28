@@ -19,22 +19,6 @@ To install the latest version of the extension head to the Official GNOME Extens
 
 Remember to set a folder in the extension settings for it to work.
 
-## Usage
-
-Once configured, BootPaper works automatically:
-
-1. Ensure your wallpaper directory contains images you want to use
-2. The extension will automatically select and apply a random wallpaper each time you boot your system
-3. No manual intervention required!
-
-## How It Works
-
-BootPaper monitors system startup and:
-1. Reads the list of image files from your configured directory
-2. Randomly selects one image from the collection
-3. Sets it as your desktop wallpaper using GNOME's background settings
-4. Waits for the next boot to repeat the process
-
 ### Important to know
 
 The wallpaper will change after a 3 second wait after startup. This is to ensure that the desktop environment is done loading.
