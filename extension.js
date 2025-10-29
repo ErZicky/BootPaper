@@ -15,8 +15,8 @@
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
-import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
-import Gio from 'gi://Gio'; // for file e directory
+import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
+import Gio from 'gi://Gio'; // for files and  directory
 import GLib from 'gi://GLib'; // for async
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
@@ -31,12 +31,10 @@ const PICTURE_URI_DARK_KEY = 'picture-uri-dark';
 
 const WALLPAPERS_DIRECTORY_KEY = 'wallpapers-directory';
 
-// Define a simple localization stub to prevent the '_' is not defined error
-function _(str) {
-    return str;
-}
 
-export default class PlainExampleExtension extends Extension {
+
+
+export default class BootPaperExtension extends Extension {
     enable() {
          this._settings = this.getSettings();
 
@@ -48,19 +46,19 @@ export default class PlainExampleExtension extends Extension {
             this._setRandomWallpaper();
             return GLib.SOURCE_REMOVE;
         });
-
-        //change wallpaper on login
-         this._unlockSignal = Main.sessionMode.connect('updated', () => {
-        if (!Main.sessionMode.isLocked)
-            this._setRandomWallpaper();
-    });
          
     }
 
     disable() {
 
+        if (this._startupId) {
+            GLib.source_remove(this._startupId);
+            this._startupId = 0;
+        }
+
         this._settings = null;
         this._backgroundSettings = null;
+        
     }
 
 
@@ -86,12 +84,12 @@ export default class PlainExampleExtension extends Extension {
  
         // Check if directory exists and is valid
         if (!folder.query_exists(null)) {
-            log(`BootPaper: directory does not exist: ${folderPath}`);
+            console.console.log(`BootPaper: directory does not exist: ${folderPath}`);
             return;
         }
 
         if (folder.query_file_type(Gio.FileQueryInfoFlags.NONE, null) !== Gio.FileType.DIRECTORY) {
-            log(`BootPaper: ${folderPath} is not a directory.`);
+            console.log(`BootPaper: ${folderPath} is not a directory.`);
             return;
         }
 
@@ -120,7 +118,7 @@ export default class PlainExampleExtension extends Extension {
                     enumerator.close(null);
 
                     if (wallpapers.length === 0) {
-                        log(`BootPaper: no images in: ${folderPath}`);
+                        console.log(`BootPaper: no images in: ${folderPath}`);
                         return;
                     }
 
@@ -146,26 +144,4 @@ export default class PlainExampleExtension extends Extension {
         );
     }
 
-     openPreferences() {
-        // Find if an extension preferences window is already open
-        const prefsWindow = global.get_window_actors().map(wa => wa.meta_window).find(w => w.wm_class === 'org.gnome.Shell.Extensions');
-
-        if (!prefsWindow) {
-            super.openPreferences();
-            return;
-        }
-
-        // The current prefsWindow belongs to this extension, activate it
-        if (prefsWindow.title === this.metadata.name) {
-            Main.activateWindow(prefsWindow);
-            return;
-        }
-
-        // If another extension's preferences are open, close it and open this extension's preferences
-        prefsWindow.connectObject('unmanaged', () => {
-            super.openPreferences();
-            prefsWindow.disconnectObject(this);
-        }, this);
-        prefsWindow.delete(global.get_current_time());
-    }
 }
