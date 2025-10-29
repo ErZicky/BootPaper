@@ -183,7 +183,7 @@ export default class BootPaperPreferences extends ExtensionPreferences {
 
 
         const versionPill = new Gtk.Button({
-            label: `${this.metadata.version}`,
+            label: `${this.metadata.versionname}`, 
             css_classes: ['pill', 'accent', 'heading'],
             sensitive: true,
             halign: Gtk.Align.CENTER,

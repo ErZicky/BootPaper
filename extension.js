@@ -84,7 +84,7 @@ export default class BootPaperExtension extends Extension {
  
         // Check if directory exists and is valid
         if (!folder.query_exists(null)) {
-            console.console.log(`BootPaper: directory does not exist: ${folderPath}`);
+            console.log(`BootPaper: directory does not exist: ${folderPath}`);
             return;
         }
 
