@@ -14,8 +14,7 @@ The extension was tested only with GNOME 48 and 49, but it should work without i
 ## Installation
 
 To install the latest version of the extension head to the Official GNOME Extensions website.
-
-[insert button when approved]
+[<img alt="Install it on extensions.gnome.org" src="media/get-it-on-ego.svg">](https://extensions.gnome.org/extension/8749/bootpaper/)
 
 Remember to set a folder in the extension settings for it to work.
 
