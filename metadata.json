@@ -4,9 +4,10 @@
   "uuid": "zetadev@bootpaper",
   "gettext-domain": "zetadev@bootpaper",
   "settings-schema": "org.gnome.shell.extensions.bootpaper",
-  "versionname": "1.0.2",
+  "versionname": "1.0.3",
   "url": "https://github.com/ErZicky/BootPaper",
   "shell-version": [
+    "50",
     "49",
     "48",
     "47",

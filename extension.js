@@ -82,7 +82,6 @@ export default class BootPaperExtension extends Extension {
 
         const folder = Gio.File.new_for_path(folderPath);
  
-        // Check if directory exists and is valid
         if (!folder.query_exists(null)) {
             console.log(`BootPaper: directory does not exist: ${folderPath}`);
             return;
@@ -123,12 +122,12 @@ export default class BootPaperExtension extends Extension {
                     }
 
                     
-                    // Select a random image path
+                    
                     const randomIndex = Math.floor(Math.random() * wallpapers.length);
                     const selectedPath = wallpapers[randomIndex];
                     
                     
-                    // Convert the file path to a Gio.File URI
+                    /
                     const wallpaperUri = Gio.File.new_for_path(selectedPath).get_uri();
 
                     // Set the wallpaper URI for both light and dark modes
