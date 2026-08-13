@@ -127,7 +127,6 @@ export default class BootPaperExtension extends Extension {
                     const selectedPath = wallpapers[randomIndex];
                     
                     
-                    /
                     const wallpaperUri = Gio.File.new_for_path(selectedPath).get_uri();
 
                     // Set the wallpaper URI for both light and dark modes
